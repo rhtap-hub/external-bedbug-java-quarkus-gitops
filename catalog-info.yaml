@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: external-bedbug-java-quarkus-gitops
+  description: This is GitOps manifest for external-bedbug-java-quarkus   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: external-bedbug-java-quarkus
+    janus-idp.io/tekton: external-bedbug-java-quarkus 
+    backstage.io/kubernetes-id: external-bedbug-java-quarkus 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:external-bedbug-java-quarkus
